@@ -1,13 +1,14 @@
 import React from 'react';
 
-interface HeaderProps {}
+// styled components
+import Copy from '../Copy';
+import Heading from './styles';
 
-const Header = (props: HeaderProps) => {
-	return (
-		<div>
-			<h2>Hello from the Header props!</h2>
-		</div>
-	);
-};
+const Header = () => (
+	<header>
+		<Heading>String Formatter</Heading>
+		<Copy>Use this formatter to quickly format your text in a few different, helpful formats!</Copy>
+	</header>
+);
 
 export default Header;
