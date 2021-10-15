@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 
+// base styles
 const baseLabelStyles = css`
 	display: block;
 	font-size: 1.5rem;
@@ -78,12 +79,26 @@ export const FormatterButton = styled.button`
 	background-color: ${(props) => props.theme.colors.glacier};
 	border: none;
 	color: ${(props) => props.theme.shades.white};
+	cursor: pointer;
 	font-size: 1rem;
 	overflow: hidden;
 	padding: 0.625rem 1.5rem;
 	position: relative;
 	text-transform: uppercase;
 	transition: all 175ms ease-in-out;
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: default;
+	}
+
+	&:not(:disabled) {
+		@media (hover) {
+			&:hover {
+				background-color: ${(props) => props.theme.colors.tolopea};
+			}
+		}
+	}
 `;
 
 export const FormattingOptionsList = styled.ul``;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useReducer } from 'react';
 
 // styled components
 import {
@@ -23,22 +23,7 @@ import { formattingReducer, initialState } from '../../reducers/formattingReduce
 import formatters from './data';
 
 const Formatter = () => {
-	const [buttonIsDisabled, setButtonIsDisabled] = useState(true);
 	const [state, dispatch] = useReducer(formattingReducer, initialState);
-
-	useEffect(() => {
-		// set format button disabled value if either state is not met
-		if (!state.input || !state.checkedID.length) {
-			setButtonIsDisabled(true);
-		} else {
-			setButtonIsDisabled(false);
-		}
-
-		// cleanup
-		return () => {
-			setButtonIsDisabled(true);
-		};
-	}, [state.input, state.checkedID.length]);
 
 	const setInputValue = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
 		dispatch({ type: 'SET_INPUT', payload: event.target.value });
@@ -48,6 +33,14 @@ const Formatter = () => {
 		dispatch({ type: 'FORMAT_INPUT' });
 	};
 
+	const setFormattingOption = (event: React.ChangeEvent<HTMLInputElement>) => {
+		dispatch({ type: 'BOX_CHECKED', payload: event.target.id });
+	};
+
+	const copyOutputValue = () => {
+		dispatch({ type: 'COPY_OUTPUT' });
+	};
+
 	return (
 		<FormatterWrapper>
 			<FormatterRow>
@@ -55,22 +48,31 @@ const Formatter = () => {
 					<FormatterGroup>
 						<FormatterLabel htmlFor='input'>Input</FormatterLabel>
 						<FormatterTextBox
-							name='input'
 							id='input'
-							value={state.input}
+							name='input'
 							onChange={setInputValue}
+							value={state.input}
 						/>
 
-						<FormatterButton onClick={formatInputValue} type='button'>
+						<FormatterButton
+							disabled={!state.input.length || !state.checkedID.length}
+							onClick={formatInputValue}
+							type='button'
+						>
 							Format
 						</FormatterButton>
 					</FormatterGroup>
 
 					<FormatterGroup>
 						<FormatterLabel htmlFor='output'>Output</FormatterLabel>
-						<FormatterTextBox name='output' id='output' readOnly value={state.output} />
-
-						<FormatterButton type='button'>{state.buttonText}</FormatterButton>
+						<FormatterTextBox id='output' name='output' readOnly value={state.output} />
+						<FormatterButton
+							disabled={!state.output.length}
+							onClick={copyOutputValue}
+							type='button'
+						>
+							Copy
+						</FormatterButton>
 					</FormatterGroup>
 				</LeftBox>
 
@@ -79,7 +81,12 @@ const Formatter = () => {
 					<FormattingOptionsList>
 						{formatters.map((formatter) => (
 							<FormattingOptionsItem key={formatter.id}>
-								<FormattingOptionsCheckbox type='checkbox' name={formatter.id} id={formatter.id} />
+								<FormattingOptionsCheckbox
+									id={formatter.id}
+									name={formatter.id}
+									onChange={setFormattingOption}
+									type='checkbox'
+								/>
 								<FormattingOptionsLabel htmlFor={formatter.id}>
 									{formatter.label}
 								</FormattingOptionsLabel>
