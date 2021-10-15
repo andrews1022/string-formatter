@@ -53,7 +53,7 @@
 		"react/jsx-closing-tag-location": "warn",
 		"react/jsx-curly-newline": "off",
 		"react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
-		"react/jsx-indent": [2, "tab"],
+		"react/jsx-indent": ["warn", "tab"],
 		"react/jsx-indent-props": [2, "tab"],
 		"react/jsx-one-expression-per-line": "off",
 		"react/jsx-props-no-multi-spaces": "warn",
