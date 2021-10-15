@@ -18,6 +18,7 @@
 		"array-callback-return": "warn",
 		"arrow-parens": "warn",
 		"arrow-spacing": "warn",
+		"block-spacing": "warn",
 		"comma-dangle": "off",
 		"comma-spacing": "warn",
 		"dot-location": "warn",
@@ -30,7 +31,9 @@
 		"import/order": "warn",
 		"import/prefer-default-export": "warn",
 		"indent": "off",
+		"jsx-a11y/control-has-associated-label": "warn",
 		"jsx-a11y/heading-has-content": "warn",
+		"jsx-a11y/label-has-associated-control": "warn",
 		"jsx-quotes": ["warn", "prefer-single"],
 		"keyword-spacing": "warn",
 		"linebreak-style": "off",
@@ -65,7 +68,9 @@
 		"react/require-default-props": "off",
 		"react/self-closing-comp": "warn",
 		"semi": "warn",
+		"space-before-blocks": "warn",
 		"space-in-parens": "warn",
+		"switch-colon-spacing": "warn",
 		"@typescript-eslint/no-use-before-define": ["error"]
 	}
 }

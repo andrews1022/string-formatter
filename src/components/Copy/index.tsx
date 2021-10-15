@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Copy = styled.p`
 	font-size: 1.125rem;
-	line-height: 1.35;
+	line-height: 1.4;
 	margin-bottom: 1rem;
 `;
 
