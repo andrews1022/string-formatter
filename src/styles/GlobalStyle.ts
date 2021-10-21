@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
     color: inherit;
     font-size: inherit;
+    -webkit-font-smoothing: antialiased;
     margin: 0;
     padding: 0;
   }
