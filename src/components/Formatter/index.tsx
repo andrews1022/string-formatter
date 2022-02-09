@@ -31,8 +31,8 @@ const Formatter = () => {
 	};
 
 	// button disabled bools
-	const isFormatButtonDisabled = !state.input.length || !state.checkedID.length;
-	const isCopyButtonDisabled = !state.output.length;
+	const isInputButtonDisabled = !state.input.length || !state.checkedID.length;
+	const isOutputButtonDisabled = !state.output.length;
 
 	return (
 		<S.Wrapper>
@@ -40,16 +40,20 @@ const Formatter = () => {
 				<S.Box>
 					<S.Group>
 						<S.Label htmlFor='input'>Input</S.Label>
+
 						<S.TextBox id='input' name='input' onChange={setInputHandler} value={state.input} />
-						<Button disabled={isFormatButtonDisabled} onClick={formatInputHandler} type='button'>
+
+						<Button disabled={isInputButtonDisabled} onClick={formatInputHandler} type='button'>
 							Format
 						</Button>
 					</S.Group>
 
 					<S.Group>
 						<S.Label htmlFor='output'>Output</S.Label>
+
 						<S.TextBox id='output' name='output' readOnly value={state.output} />
-						<Button disabled={isCopyButtonDisabled} onClick={copyOutputHandler} type='button'>
+
+						<Button disabled={isOutputButtonDisabled} onClick={copyOutputHandler} type='button'>
 							Copy
 						</Button>
 					</S.Group>

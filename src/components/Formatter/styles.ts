@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-// base styles
+// base label styles
 const baseLabelStyles = css`
 	display: block;
 	font-size: 1.5rem;
