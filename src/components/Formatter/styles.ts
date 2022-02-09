@@ -8,7 +8,7 @@ const baseLabelStyles = css`
 	line-height: 1.4;
 `;
 
-export const FormatterWrapper = styled.div`
+export const Wrapper = styled.div`
 	margin: 3.5% 0;
 	text-align: left;
 
@@ -17,7 +17,7 @@ export const FormatterWrapper = styled.div`
 	}
 `;
 
-export const FormatterRow = styled.div`
+export const Row = styled.div`
 	display: flex;
 	align-items: flex-start;
 
@@ -26,29 +26,31 @@ export const FormatterRow = styled.div`
 	}
 `;
 
-export const LeftBox = styled.div`
-	flex: 0 0 70%;
-	margin-right: 5%;
+export const Box = styled.div`
+	&:first-of-type {
+		flex: 0 0 70%;
+		margin-right: 5%;
 
-	@media ${(props) => props.theme.mediaQueries.tabletPortrait} {
-		margin-right: 0;
-		width: 100%;
+		@media ${(props) => props.theme.mediaQueries.tabletPortrait} {
+			margin-right: 0;
+			width: 100%;
+		}
+	}
+
+	&:last-of-type {
+		flex: 1;
+
+		@media ${(props) => props.theme.mediaQueries.tabletPortrait} {
+			width: 100%;
+		}
 	}
 `;
 
-export const RightBox = styled.div`
-	flex: 1;
-
-	@media ${(props) => props.theme.mediaQueries.tabletPortrait} {
-		width: 100%;
-	}
-`;
-
-export const OptionsHeading = styled.h2`
+export const Heading = styled.h2`
 	${baseLabelStyles};
 `;
 
-export const FormatterGroup = styled.div`
+export const Group = styled.div`
 	display: flex;
 	align-items: flex-start;
 	flex-direction: column;
@@ -58,11 +60,11 @@ export const FormatterGroup = styled.div`
 	}
 `;
 
-export const FormatterLabel = styled.label`
+export const Label = styled.label`
 	${baseLabelStyles};
 `;
 
-export const FormatterTextBox = styled.textarea`
+export const TextBox = styled.textarea`
 	height: 10vw;
 	width: 100%;
 	resize: none;
@@ -75,35 +77,9 @@ export const FormatterTextBox = styled.textarea`
 	}
 `;
 
-export const FormatterButton = styled.button`
-	background-color: ${(props) => props.theme.colors.glacier};
-	border: none;
-	color: ${(props) => props.theme.shades.white};
-	cursor: pointer;
-	font-size: 1rem;
-	overflow: hidden;
-	padding: 0.625rem 1.5rem;
-	position: relative;
-	text-transform: uppercase;
-	transition: all 175ms ease-in-out;
+export const OptionsList = styled.ul``;
 
-	&:disabled {
-		opacity: 0.5;
-		cursor: default;
-	}
-
-	&:not(:disabled) {
-		@media (hover) {
-			&:hover {
-				background-color: ${(props) => props.theme.colors.tolopea};
-			}
-		}
-	}
-`;
-
-export const FormattingOptionsList = styled.ul``;
-
-export const FormattingOptionsItem = styled.li`
+export const OptionsItem = styled.li`
 	display: flex;
 	align-items: baseline;
 
@@ -112,11 +88,11 @@ export const FormattingOptionsItem = styled.li`
 	}
 `;
 
-export const FormattingOptionsLabel = styled.label`
+export const OptionsLabel = styled.label`
 	font-size: 1.125rem;
 	line-height: 1.4;
 `;
 
-export const FormattingOptionsCheckbox = styled.input`
+export const OptionsCheckbox = styled.input`
 	margin-right: 3.5%;
 `;

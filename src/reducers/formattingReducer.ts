@@ -1,12 +1,18 @@
-// util fn
-import formatDecider from '../util/formatDecider';
+// util
+import { formatDecider } from '../util/formatDecider';
 
-export interface FormattingState {
+type FormattingState = {
 	input: string;
 	output: string;
 	checkedID: string[];
 	limit: number;
-}
+};
+
+type FormattingActions =
+	| { type: 'BOX_CHECKED'; payload: string }
+	| { type: 'COPY_OUTPUT' }
+	| { type: 'FORMAT_INPUT' }
+	| { type: 'SET_INPUT'; payload: string };
 
 export const initialState = {
 	input: '',
@@ -14,12 +20,6 @@ export const initialState = {
 	checkedID: [],
 	limit: 1
 };
-
-export type FormattingActions =
-	| { type: 'BOX_CHECKED'; payload: string }
-	| { type: 'COPY_OUTPUT' }
-	| { type: 'FORMAT_INPUT' }
-	| { type: 'SET_INPUT'; payload: string };
 
 export const formattingReducer = (
 	state: FormattingState = initialState,

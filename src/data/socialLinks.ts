@@ -1,4 +1,7 @@
-import { SocialLink } from '../types/types';
+type SocialLink = {
+	site: string;
+	url: string;
+};
 
 const socialLinks: SocialLink[] = [
 	{ site: 'GitHub', url: 'https://github.com/andrews1022/startup-generator-react-typescript' },

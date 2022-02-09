@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import { ThemeProvider } from 'styled-components';
-
-// components
-import App from './App';
 
 // styled components
+import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './styles/GlobalStyle';
 import theme from './styles/theme';
 
+// components
+import App from './components/App';
+
 ReactDOM.render(
-	<React.StrictMode>
+	<StrictMode>
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
 			<App />
 		</ThemeProvider>
-	</React.StrictMode>,
+	</StrictMode>,
 	document.getElementById('root')
 );

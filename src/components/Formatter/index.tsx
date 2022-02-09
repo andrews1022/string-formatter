@@ -1,21 +1,9 @@
-import React, { useReducer } from 'react';
+import React, { ChangeEvent, useReducer } from 'react';
 
 // styled components
-import {
-	FormatterWrapper,
-	FormatterRow,
-	LeftBox,
-	RightBox,
-	OptionsHeading,
-	FormatterGroup,
-	FormatterTextBox,
-	FormatterLabel,
-	FormatterButton,
-	FormattingOptionsCheckbox,
-	FormattingOptionsItem,
-	FormattingOptionsList,
-	FormattingOptionsLabel
-} from './styles';
+import * as S from './styles';
+import { Button } from '../UI/Button';
+
 // reducer
 import { formattingReducer, initialState } from '../../reducers/formattingReducer';
 
@@ -25,77 +13,66 @@ import formatters from './data';
 const Formatter = () => {
 	const [state, dispatch] = useReducer(formattingReducer, initialState);
 
-	const setInputValue = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-		dispatch({ type: 'SET_INPUT', payload: event.target.value });
-	};
-
-	const formatInputValue = () => {
-		dispatch({ type: 'FORMAT_INPUT' });
-	};
-
-	const setFormattingOption = (event: React.ChangeEvent<HTMLInputElement>) => {
-		dispatch({ type: 'BOX_CHECKED', payload: event.target.id });
-	};
-
-	const copyOutputValue = () => {
+	// event functions
+	const copyOutputHandler = () => {
 		dispatch({ type: 'COPY_OUTPUT' });
 	};
 
+	const formatInputHandler = () => {
+		dispatch({ type: 'FORMAT_INPUT' });
+	};
+
+	const setFormattingOptionHandler = (event: ChangeEvent<HTMLInputElement>) => {
+		dispatch({ type: 'BOX_CHECKED', payload: event.target.id });
+	};
+
+	const setInputHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
+		dispatch({ type: 'SET_INPUT', payload: event.target.value });
+	};
+
+	// button disabled bools
+	const isFormatButtonDisabled = !state.input.length || !state.checkedID.length;
+	const isCopyButtonDisabled = !state.output.length;
+
 	return (
-		<FormatterWrapper>
-			<FormatterRow>
-				<LeftBox>
-					<FormatterGroup>
-						<FormatterLabel htmlFor='input'>Input</FormatterLabel>
-						<FormatterTextBox
-							id='input'
-							name='input'
-							onChange={setInputValue}
-							value={state.input}
-						/>
-
-						<FormatterButton
-							disabled={!state.input.length || !state.checkedID.length}
-							onClick={formatInputValue}
-							type='button'
-						>
+		<S.Wrapper>
+			<S.Row>
+				<S.Box>
+					<S.Group>
+						<S.Label htmlFor='input'>Input</S.Label>
+						<S.TextBox id='input' name='input' onChange={setInputHandler} value={state.input} />
+						<Button disabled={isFormatButtonDisabled} onClick={formatInputHandler} type='button'>
 							Format
-						</FormatterButton>
-					</FormatterGroup>
+						</Button>
+					</S.Group>
 
-					<FormatterGroup>
-						<FormatterLabel htmlFor='output'>Output</FormatterLabel>
-						<FormatterTextBox id='output' name='output' readOnly value={state.output} />
-						<FormatterButton
-							disabled={!state.output.length}
-							onClick={copyOutputValue}
-							type='button'
-						>
+					<S.Group>
+						<S.Label htmlFor='output'>Output</S.Label>
+						<S.TextBox id='output' name='output' readOnly value={state.output} />
+						<Button disabled={isCopyButtonDisabled} onClick={copyOutputHandler} type='button'>
 							Copy
-						</FormatterButton>
-					</FormatterGroup>
-				</LeftBox>
+						</Button>
+					</S.Group>
+				</S.Box>
 
-				<RightBox>
-					<OptionsHeading>Options (Pick 1)</OptionsHeading>
-					<FormattingOptionsList>
+				<S.Box>
+					<S.Heading>Options (Pick 1)</S.Heading>
+					<S.OptionsList>
 						{formatters.map((formatter) => (
-							<FormattingOptionsItem key={formatter.id}>
-								<FormattingOptionsCheckbox
+							<S.OptionsItem key={formatter.id}>
+								<S.OptionsCheckbox
 									id={formatter.id}
 									name={formatter.id}
-									onChange={setFormattingOption}
+									onChange={setFormattingOptionHandler}
 									type='checkbox'
 								/>
-								<FormattingOptionsLabel htmlFor={formatter.id}>
-									{formatter.label}
-								</FormattingOptionsLabel>
-							</FormattingOptionsItem>
+								<S.OptionsLabel htmlFor={formatter.id}>{formatter.label}</S.OptionsLabel>
+							</S.OptionsItem>
 						))}
-					</FormattingOptionsList>
-				</RightBox>
-			</FormatterRow>
-		</FormatterWrapper>
+					</S.OptionsList>
+				</S.Box>
+			</S.Row>
+		</S.Wrapper>
 	);
 };
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const AppWrapper = styled.div`
+export const Wrapper = styled.div`
 	background-color: ${({ theme }) => theme.shades.white};
 	box-shadow: 0 0.5rem 1rem 0 rgb(0 0 0 / 15%);
 	border-radius: 1rem;
@@ -12,5 +12,3 @@ const AppWrapper = styled.div`
 		width: 85%;
 	}
 `;
-
-export default AppWrapper;

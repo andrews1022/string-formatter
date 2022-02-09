@@ -1,24 +1,23 @@
 import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 
+// destructured theme properties
+const { colors, fonts, mediaQueries, shades } = theme;
+
 const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 100%;
 
-    @media ${theme.mediaQueries.desktopSmall} {
+    @media ${mediaQueries.desktopSmall} {
 		  font-size: 87.5%;
-    }
-
-    @media ${theme.mediaQueries.tabletLandscape} {
-      font-size: 75%;
     }
   }
 
   body {
-    background-color: ${theme.shades.whiteSmoke};
-    color: ${theme.colors.tolopea};
-	  font-family: ${theme.fonts.roboto};
+    background-color: ${shades.whiteSmoke};
+    color: ${colors.tolopea};
+	  font-family: ${fonts.roboto};
     line-height: 1;
     text-align: center;
   }
@@ -37,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
   button, 
   input, 
   textarea {
-    font-family: ${theme.fonts.roboto};
+    font-family: ${fonts.roboto};
   }
 
   img,
@@ -97,7 +96,7 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     height: 100vh;
 
-    @media ${theme.mediaQueries.tabletPortrait} {
+    @media ${mediaQueries.tabletPortrait} {
       align-items: flex-start;
     }
   }

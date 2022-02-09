@@ -1,4 +1,7 @@
-import { Formatter } from '../../types/types';
+type Formatter = {
+	id: string;
+	label: string;
+};
 
 const formatters: Formatter[] = [
 	{ id: 'format_lowercase', label: 'lowercase' },

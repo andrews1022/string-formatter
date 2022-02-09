@@ -1,8 +1,8 @@
 import React from 'react';
 
 // styled components
-import Copy from '../Copy';
-import Heading from './styles';
+import { Copy } from '../UI/Copy';
+import { Heading } from '../UI/Heading';
 
 const Header = () => (
 	<header>
