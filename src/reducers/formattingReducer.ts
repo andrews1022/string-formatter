@@ -1,5 +1,5 @@
 // util
-import { formatDecider } from '../util/formatDecider';
+import { formatDecider } from '../utils/formatDecider';
 
 type FormattingState = {
 	input: string;

@@ -13,7 +13,7 @@ import { Copy } from '../UI/Copy';
 import { ScreenReaderText } from '../UI/ScreenReaderText';
 
 // util
-import { getCurrentYear } from '../../util/getCurrentYear';
+import { getCurrentYear } from '../../utils/getCurrentYear';
 
 // data
 import socialLinks from '../../data/socialLinks';
