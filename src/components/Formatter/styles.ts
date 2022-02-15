@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 	margin: 3.5% 0;
 	text-align: left;
 
-	@media ${(props) => props.theme.mediaQueries.tabletPortrait} {
+	@media ${({ theme }) => theme.mediaQueries.tabletPortrait} {
 		margin-top: 5%;
 	}
 `;
@@ -21,7 +21,7 @@ export const Row = styled.div`
 	display: flex;
 	align-items: flex-start;
 
-	@media ${(props) => props.theme.mediaQueries.tabletPortrait} {
+	@media ${({ theme }) => theme.mediaQueries.tabletPortrait} {
 		flex-direction: column-reverse;
 	}
 `;
@@ -31,7 +31,7 @@ export const Box = styled.div`
 		flex: 0 0 70%;
 		margin-right: 5%;
 
-		@media ${(props) => props.theme.mediaQueries.tabletPortrait} {
+		@media ${({ theme }) => theme.mediaQueries.tabletPortrait} {
 			margin-right: 0;
 			width: 100%;
 		}
@@ -40,7 +40,7 @@ export const Box = styled.div`
 	&:last-of-type {
 		flex: 1;
 
-		@media ${(props) => props.theme.mediaQueries.tabletPortrait} {
+		@media ${({ theme }) => theme.mediaQueries.tabletPortrait} {
 			width: 100%;
 		}
 	}
@@ -72,7 +72,7 @@ export const TextBox = styled.textarea`
 	margin-bottom: 1%;
 	font-size: 1.125rem;
 
-	@media ${(props) => props.theme.mediaQueries.tabletLandscape} {
+	@media ${({ theme }) => theme.mediaQueries.tabletLandscape} {
 		height: 15vw;
 	}
 `;

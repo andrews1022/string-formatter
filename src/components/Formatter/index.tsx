@@ -1,4 +1,5 @@
-import React, { ChangeEvent, useReducer } from 'react';
+import React, { useReducer } from 'react';
+import type { ChangeEvent } from 'react';
 
 // styled components
 import * as S from './styles';
