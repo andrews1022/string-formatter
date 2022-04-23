@@ -2,10 +2,10 @@
 import { formatDecider } from '../utils/formatDecider';
 
 type FormattingState = {
-  input: string;
-  output: string;
   checkedID: string[];
+  input: string;
   limit: number;
+  output: string;
 };
 
 type FormattingActions =
@@ -15,16 +15,16 @@ type FormattingActions =
   | { type: 'SET_INPUT'; payload: string };
 
 export const initialState = {
-  input: '',
-  output: '',
   checkedID: [],
-  limit: 1
+  input: '',
+  limit: 1,
+  output: ''
 };
 
 export const formattingReducer = (
   state: FormattingState = initialState,
   action: FormattingActions
-) => {
+): FormattingState => {
   switch (action.type) {
     case 'BOX_CHECKED': {
       const currentCheckedItem = document.getElementById(state.checkedID[0]) as HTMLInputElement;

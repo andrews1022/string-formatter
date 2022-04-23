@@ -1,17 +1,17 @@
-import React, { useReducer } from 'react';
+import { useReducer } from 'react';
 import type { ChangeEvent } from 'react';
 
 // styled components
-import * as S from './styles';
+import * as S from './Formatter.styles';
 import { Button } from '../UI/Button';
 
 // reducer
 import { formattingReducer, initialState } from '../../reducers/formattingReducer';
 
 // data
-import formatters from './data';
+import { formatters } from '../../data/formatters';
 
-const Formatter = () => {
+const Formatter = (): JSX.Element => {
   const [state, dispatch] = useReducer(formattingReducer, initialState);
 
   // event functions

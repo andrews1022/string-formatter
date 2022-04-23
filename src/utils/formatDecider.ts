@@ -1,7 +1,8 @@
 import * as F from './formattingFunctions';
 
 // dynamically return the appropiate formatting function based on the id passed in
-export const formatDecider = (id: string) => {
+// eslint-disable-next-line no-unused-vars
+export const formatDecider = (id: string): ((text: string) => string) => {
   switch (id) {
     case 'format_lowercase': {
       return F.formatTextLowerCase;

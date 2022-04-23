@@ -1,24 +1,22 @@
-import React from 'react';
-
 // font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
-// compoents
-import ExternalLink from '../ExternalLink';
+// components
+import ExternalLink from '../ExternalLink/ExternalLink';
 
 // styled components
-import * as S from './styles';
+import * as S from './Footer.styles';
 import { Copy } from '../UI/Copy';
 import { ScreenReaderText } from '../UI/ScreenReaderText';
 
-// util
+// utils
 import { getCurrentYear } from '../../utils/getCurrentYear';
 
 // data
-import socialLinks from '../../data/socialLinks';
+import { socialLinks } from '../../data/socialLinks';
 
-const Footer = () => (
+const Footer = (): JSX.Element => (
   <S.Footer>
     <Copy>© {getCurrentYear()} all rights reserved. designed and built and andrew shearer</Copy>
 
